@@ -1,0 +1,75 @@
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.form {
+    margin-top: 1rem;
+    margin-left: 0.25rem;
+}
+
+.forminput {
+    font-size: small;
+}
+
+#user {
+    color:grey;
+    font-size: 2rem;
+}
+
+.wrapper {
+    display: flex;
+    margin-top: 1rem;
+}
+
+#table_id {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 14px;
+}
+
+.table_wrapper {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 1em;
+}
+
+.atag {
+    color: white;
+}
+
+#but {
+    margin-top: 0.5em;
+}
+
+.swal-title {
+    margin: 0px;
+    font-size: 1rem;
+    color:grey;
+}
+
+.swal-button {
+    padding: 7px 19px;
+    border-radius: 2px;
+    font-size: 12px;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .swal-footer {
+    background-color: rgb(245, 248, 250);
+    margin-top: 32px;
+    border-top: 1px solid #E9EEF1;
+    overflow: hidden;
+  }
+
+  .headerBg {
+      display: flex;
+      flex-flow: column wrap;
+      height: 600px;
+      background-image: url(https://www.m1.com.sg/-/media/Images/Personal/My-Account/Rewards/ImageBanner/Rewards.jpg);
+      background-repeat: no-repeat;
+      background-size:contain;
+    }
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body>
+
+  <div class= "form">
+    <form action="/rewardspage/<%= index %>/?_method=PUT" method="POST" id="myForm">
+        <div class="form-row">
+          <div class="col-md-2 mb-3">
+            <label for="rewardsType" class="forminput" >Type Of Rewards</label>
+            <input type="text" class="form-control" id="rewardsType" name="rewardsType" required="true" class="forminput" value="<%= result.rewardsType %>" >
+          </div>
+          <div class="col-md-2 mb-3">
+            <label for="rewardsAmount" class="forminput">Rewards Amount</label>
+            <input type="number" class="form-control" id="rewardsAmount" required="true" min='1' name="rewardsAmount" class="forminput" value="<%= result.rewardsAmount %>" >
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-2">
+            <label for="rewardsExpiry" class="forminput">Rewards Expiry Date</label>
+            <input type="date" class="form-control" id="rewardsExpiry" name="rewardsExpiry" required="true" class="forminput">
+          </div>
+            <div class="col-md-2">
+              <label for="rewardsLocation" class="forminput">Where do to utilized rewards?</label>
+              <input type="text" class="form-control" id="rewardsLocation" name="rewardsLocation" required="true" class="forminput" value="<%= result.rewardsLocation %>">
+            </div>
+          </div>
+        <div class="form-group">
+        </div>
+        <button class="btn btn-primary" type="submit" class="forminput" id="btn-submit">Submit</button>
+        
+          <button class="btn btn-primary back"><a href="/rewardspage" class='atag'>Back</a></button> 
+    
+      </form>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>

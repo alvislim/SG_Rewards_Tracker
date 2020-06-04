@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand" href="/about">About Us</a>
+        <div class="collapse navbar-collapse d-flex flex-row-reverse bd-highlight" id="navbarNav">
+          <ul class="navbar-nav ">
+            <li class="nav-item active">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="col-md-6 m-auto">
+      <h1 class="mt-4">About Us</h1>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6 m-auto">
+            <div class=" text-center">
+                <p>Purpose of this website is to allow user to track the types of rewards, expiry date and where to 
+                    utilize them.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

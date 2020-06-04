@@ -2,6 +2,8 @@
 const express = require('express'); 
 const app = express();
 
+const assert = require('assert');
+
 // Put delete request
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
@@ -11,7 +13,7 @@ const passport = require('passport');
 require('./config/passport')(passport);
 
 // Environment
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT ||3000;
 
 // Require flash
 const flash = require('connect-flash');
@@ -65,6 +67,7 @@ require('./routes/user')(app);
 // MongoDB dependencies
 const mongoose = require('mongoose');
 const user = require('./models/User');
+const rewards = require('./models/Rewards');
 
 // Global Configuration
 const mongoURI = 'mongodb://localhost:27017/User';

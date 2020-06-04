@@ -1,75 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <%- include('./partials/head.ejs') %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <%- include('./partials/head.ejs') %>
 </head>
+
 <body>
-    <div class="row mt-5">
-        <div class="col-md-6 m-auto">
-          <div class="card card-body">
-            <h1 class="text-center mb-3">
-              <i class="fas fa-user-plus"></i> Register
-            </h1>
-            <%- include('./partials/messages.ejs') %>
-            <form action="/register" method="POST">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input
-                  type="name"
-                  id="name"
-                  name="name"
-                  class="form-control"
-                  placeholder="Enter Name"
-                  required="true"
-                  value="<%= typeof name != 'undefined' ? name : '' %>"
-                />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-control"
-                  required="true"
-                  placeholder="Enter Email"
-                  value="<%= typeof email != 'undefined' ? email : '' %>"
-                />
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  required="true"
-                  class="form-control"
-                  placeholder="Create Password"
-                  value="<%= typeof password != 'undefined' ? password : '' %>"
-                />
-              </div>
-              <div class="form-group">
-                <label for="password2">Confirm Password</label>
-                <input
-                  type="password"
-                  id="password2"
-                  name="password2"
-                  required="true"
-                  class="form-control"
-                  placeholder="Confirm Password"
-                  value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-                />
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">
-                Register
-              </button>
-            </form>
-            <p class="lead mt-4">Have An Account? <a href="/login">Login</a></p>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About Us <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Interim</a>
+        </li>
+      </ul>
+      <span class="navbar">
+         <a class="navbar-light" href="/register">Register</a>
+      </span>
+      <span class="navbar">
+         <a class="navbar-light" href="/login">Login</a>
+      </span>
+    </div>
+  </nav>
+  <div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3">
+          <svg class="bi bi-person-plus" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M11 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM1.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm4.5 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+            <path fill-rule="evenodd" d="M13 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z"/>
+          </svg> Register
+        </h1>
+        <%- include('./partials/messages.ejs') %>
+        <form action="/register" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" id="name" name="name" class="form-control" placeholder="Enter Name" required="true"
+              value="<%= typeof name != 'undefined' ? name : '' %>" />
           </div>
-        </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required="true" placeholder="Enter Email"
+              value="<%= typeof email != 'undefined' ? email : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required="true" class="form-control"
+              placeholder="Create Password" value="<%= typeof password != 'undefined' ? password : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input type="password" id="password2" name="password2" required="true" class="form-control"
+              placeholder="Confirm Password" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Register
+          </button>
+        </form>
+        <p class="lead mt-4">Have An Account? <a href="/login">Login</a></p>
       </div>
+    </div>
+  </div>
 </body>
+
 </html>

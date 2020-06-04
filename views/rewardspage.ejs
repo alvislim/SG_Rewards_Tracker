@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <%- include('./partials/head.ejs') %>
+</head>
+
+<body>
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Rewards Tracker <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Expense Tracker</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Interim</a>
+                </li>
+            </ul>
+            <span class="navbar">
+                 <a class="navbar-light" href="/logout">Logout</a>
+            </span>
+        </div>
+    </nav>
+    </nav>
+
+    <div class="form">
+        <button class="btn btn-dark" id="add">
+            Add a Rewards to track?
+        </button>
+        <div class="wrapper">
+            <%- include('./partials/messages.ejs') %>
+        </div>
+        <div id="addform" class="hide">
+            <%- include('./partials/addform.ejs') %>
+        </div>
+    </div>
+
+    <div class="table_wrapper">
+        <table id="table_id" class="ui celled table" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Rewards Type</th>
+                    <th>Rewards Amount</th>
+                    <th>Expiry Date</th>
+                    <th>Where can I use them rewards?</th>
+                    <th>Redeemed?</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let key in rewards) { %>
+                <% if (rewards[key].email === email) { %>
+                <% let checked = rewards[key].rewardsCheck  ? "checked" : "" %>
+                <% let time = moment(rewards[key].rewardsExpiry).format("ll, ddd") %>
+                <tr>
+                    <td><%= rewards[key].rewardsType %> </td>
+                    <td><%= rewards[key].rewardsAmount %> </td>
+                    <td><%= time %> </td>
+                    <td><%= rewards[key].rewardsLocation %> </td>
+                    <td>
+                        <form action="/rewardspage/checkform/<%= rewards[key]._id %>/?_method=PUT" method="POST" class="checkForm">
+                            <input type="checkbox" name="rewardsCheck" onChange="this.form.submit()" <%= checked %> >
+                        </form>
+                    </td>
+                    <td>
+                        
+                        <form action="/rewardspage/<%= rewards[key]._id  %>?_method=DELETE" method="POST" id="myFormDelete">
+                            <button class="btn btn-dark btn-sm" id="btn-delete">Delete</button>
+                        </form>
+                        
+                        <button class="btn btn-dark btn-sm" id="but"><a href="/rewardspage/<%= rewards[key]._id %>/edit" class="atag">Edit</a></button>
+             
+                    </td>
+                </tr>
+
+                <% } %>
+                <% } %>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

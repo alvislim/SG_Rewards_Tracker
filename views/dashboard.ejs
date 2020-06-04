@@ -7,8 +7,36 @@
     <%- include('./partials/head.ejs') %>
 </head>
 <body>
-    <h1 class="mt-4">Theme???</h1>
-    <p class="lead mb-3">Welcome <%= name %></p>
-    <a href="/logout" class="btn btn-secondary">Logout</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/rewardspage">Rewards Tracker <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Expense Tracker</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Interim</a>
+        </li>
+      </ul>
+      <span class="navbar">
+         <a class="navbar-light" href="/logout">Logout</a>
+      </span>
+    </div>
+  </nav>
+  </nav>
+      <%- include('./partials/messages.ejs') %>
+      <p class="p-3" id = "user"> Welcome <%= name %> </p>
+      
+    
+    
 </body>
 </html>

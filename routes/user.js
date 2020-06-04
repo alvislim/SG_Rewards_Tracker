@@ -15,5 +15,7 @@ module.exports = app => {
 
         // Logout Handler
         app.get('/logout', page.logoutHandler)
+
+        app.get('/about', page.about)
     
     }
