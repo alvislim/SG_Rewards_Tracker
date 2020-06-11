@@ -72,7 +72,7 @@ const user = require('./models/User');
 const rewards = require('./models/Rewards');
 
 // Connection URL
-const mongoURI = "mongodb://localhost:27017/User"
+const mongoURI = process.env.MONGODB_URI
 // database connection short form
 const db = mongoose.connection;
 
