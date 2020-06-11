@@ -165,9 +165,13 @@ const page = {
                 rewardsExpiry: rewardsExpiry,
                 rewardsLocation: rewardsLocation,
             })
-
-            req.flash('success_msg', 'You have successfully updated a rewards!');
-            res.redirect('/rewardspage')
+            if(!rewardsExpiry) {
+                req.flash('error_msg', 'Date field is empty!');
+                res.redirect(`/rewardspage/${index}/edit`) 
+            } else {
+                req.flash('success_msg', 'You have successfully updated a rewards!');
+                res.redirect('/rewardspage')
+            }
         }
         catch (err) {
             req.flash('error_msg', 'We are having some issues with our server, please try again later');

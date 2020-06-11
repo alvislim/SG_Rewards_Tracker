@@ -2,98 +2,180 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <%- include('./partials/head.ejs') %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <%- include('./partials/head.ejs') %>
 </head>
 
 <body>
-   
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Rewards Tracker <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Expense Tracker</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Interim</a>
-                </li>
-            </ul>
-            <span class="navbar">
-                 <a class="navbar-light" href="/logout">Logout</a>
-            </span>
-        </div>
-    </nav>
-    </nav>
 
-    <div class="form">
-        <button class="btn btn-dark" id="add">
-            Add a Rewards to track?
-        </button>
-        <div class="wrapper">
-            <%- include('./partials/messages.ejs') %>
-        </div>
-        <div id="addform" class="hide">
-            <%- include('./partials/addform.ejs') %>
-        </div>
+  <nav class="navbar navbar-expand-md navbar-custom sticky-top" style="width: 100%;">
+    <a class="navbar-brand">Rewards Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#colNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse navbar-top-collapse" id="colNav">
+      <ul class="navbar-nav mx-auto pr-5">
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/rewardspage">Rewards Overview<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Expenses tracker?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Interim</a>
+        </li>
+        <ul class="nav navbar-nav">
+        </ul>
     </div>
-
-    <div class="table_wrapper">
-        <table id="table_id" class="ui celled table" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Rewards Type</th>
-                    <th>Rewards Amount</th>
-                    <th>Expiry Date</th>
-                    <th>Where can I use them rewards?</th>
-                    <th>Redeemed?</th>
-                    <th>Options</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (let key in rewards) { %>
-                <% if (rewards[key].email === email) { %>
-                <% let checked = rewards[key].rewardsCheck  ? "checked" : "" %>
-                <% let time = moment(rewards[key].rewardsExpiry).format("ll, ddd") %>
-                <tr>
-                    <td><%= rewards[key].rewardsType %> </td>
-                    <td><%= rewards[key].rewardsAmount %> </td>
-                    <td><%= time %> </td>
-                    <td><%= rewards[key].rewardsLocation %> </td>
-                    <td>
-                        <form action="/rewardspage/checkform/<%= rewards[key]._id %>/?_method=PUT" method="POST" class="checkForm">
-                            <input type="checkbox" name="rewardsCheck" onChange="this.form.submit()" <%= checked %> >
-                        </form>
-                    </td>
-                    <td>
-                        
-                        <form action="/rewardspage/<%= rewards[key]._id  %>?_method=DELETE" method="POST" id="myFormDelete">
-                            <button class="btn btn-dark btn-sm" id="btn-delete">Delete</button>
-                        </form>
-                        
-                        <button class="btn btn-dark btn-sm" id="but"><a href="/rewardspage/<%= rewards[key]._id %>/edit" class="atag">Edit</a></button>
-             
-                    </td>
-                </tr>
-
-                <% } %>
-                <% } %>
-
-            </tbody>
-        </table>
+    <div class="pull-right" id="colNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="/logout" class="nav-link">Logout</a>
+        </li>
+      </ul>
     </div>
+  </nav>
+
+
+  <div class="form">
+    <button class="btn btn-dark mx-2" id="add">
+      Add a Rewards to track?
+    </button>
+    <div class="wrapper">
+      <%- include('./partials/messages.ejs') %>
+    </div>
+    <div id="addform" class="hide">
+      <%- include('./partials/addform.ejs') %>
+    </div>
+  </div>
+  <div class="legendTitle">
+     <span class="badge mb-2">Legends</span>
+  </div>
+  <div class="legend">
+    <span class="badge table-success mr-2 pb-1 pt-1" style="color:  rgb(77, 72, 72);">Redeemed</span>
+    <span class="badge table-warning mr-2 pb-1 pt-1" style="color:  rgb(77, 72, 72);">Expiring in 3 days</span>
+    <span class="badge table-danger mr-2 pb-1 pt-1" style="color:  rgb(77, 72, 72);">Expired</span>
+  </div>
+
+  <div class="table-responsive-sm pb-3 ml-3 mr-3">
+    <table id="table_id" class="table table-hover">
+      <thead class="bg-dark">
+        <tr style="color: white;">
+          <th scope="col">Rewards Type</th>
+          <th scope="col">Rewards Amount</th>
+          <th scope="col">Expiry Date</th>
+          <th scope="col">Where can I use them rewards?</th>
+          <th scope="col">Redeemed?</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody class="table table-hover">
+        <% for (let key in rewards) { %>
+        <% if (rewards[key].email === email) { %>
+        <% let checked = rewards[key].rewardsCheck  ? "checked" : "" %>
+        <% let time = moment(rewards[key].rewardsExpiry).format("ll, ddd") %>
+        <% let redeeemed = rewards[key].rewardsCheck === true ? "table-success" : "" %>
+
+        <% let rewardsExpiryDate = moment(rewards[key].rewardsExpiry) %>
+        <% let currentDate = moment() %>
+        <% let lessThan3 = rewardsExpiryDate.diff(currentDate, 'day') %>
+        <% if (lessThan3 < 4 && lessThan3 > 0 && rewards[key].rewardsCheck === false ) { %>
+        <% var orange = "table-warning" %>
+        <% } else if (lessThan3 < 0 && rewards[key].rewardsCheck === false) { %>
+        <% var orange = "table-danger" %>
+        <% } else { %>
+          <% var orange = "" %>
+          <% } %>
+
+
+        <tr class="table <%= redeeemed %> <%= orange %>" style="color: rgb(77, 72, 72);">
+          <td><%= rewards[key].rewardsType %> </td>
+          <td><%= rewards[key].rewardsAmount %> </td>
+          <td><%=  time  %> </td>
+          <td><%= rewards[key].rewardsLocation %> </td>
+          <td>
+            <form action="/rewardspage/checkform/<%= rewards[key]._id %>/?_method=PUT" method="POST" class="checkForm">
+              <input type="checkbox" name="rewardsCheck" onChange="this.form.submit()" <%= checked %>>
+            </form>
+          </td>
+          <td>
+            <div class="input-group mb-1">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-dark dropdown-toggle btn-sm" type="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Action</button>
+                <div class="dropdown-menu">
+                  <form action="/rewardspage/<%= rewards[key]._id  %>?_method=DELETE" method="POST"
+                    class="myFormDelete">
+                    <button class="dropdown-item btn-delete">Delete</button>
+                  </form>
+
+                  <a href="/rewardspage/<%= rewards[key]._id %>/edit" class="dropdown-item">Edit</a>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <% } %>
+        <% } %>
+
+      </tbody>
+    </table>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>About</h6>
+          <p class="text-justify">mighty-caverns-14844.herokuapp.com <i>WANTS TO BE SIMPLE </i> is an initiative to help
+            consumer trace and track all of their rewards in one place. </p>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Categories</h6>
+          <ul class="footer-links">
+            <li><a href="http://scanfcode.com/category/c-language/">Coming soon</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Contribute</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by
+            <a href="#">Might-Caverns</a>.
+          </p>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 
 </html>

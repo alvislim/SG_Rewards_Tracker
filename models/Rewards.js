@@ -14,7 +14,8 @@ const RewardsSchema = new Schema({
 
   rewardsAmount: {
     type: Number,
-    required: true
+    required: true,
+    min: 1
   },
 
   rewardsExpiry: {

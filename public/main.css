@@ -1,5 +1,29 @@
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  background: #74ebd5;
+  background: -webkit-linear-gradient(to right, #74ebd5, #ACB6E5);
+  background: linear-gradient(to right, #74ebd5, #ACB6E5);
+  min-height: 100vh;
+}
+
+.navbar-custom { 
+  background-color: rgba(255, 255, 255, 0.5);
+} 
+
+.navbar-custom .nav-link {
+  color: black;
+}
+
+.navbar-custom .nav-link:hover {
+  color: blue;
+}
+
 .hide {
     display: none;
+    margin-left: 0.5rem;
 }
 
 .show {
@@ -8,7 +32,7 @@
 
 .form {
     margin-top: 1rem;
-    margin-left: 0.25rem;
+    margin-left: 0.5rem;
 }
 
 .forminput {
@@ -23,53 +47,255 @@
 .wrapper {
     display: flex;
     margin-top: 1rem;
-}
-
-#table_id {
-    color: rgba(0, 0, 0, 0.7);
-    font-size: 14px;
-}
-
-.table_wrapper {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    margin-top: 1em;
+    margin-left: 0.5rem;
 }
 
 .atag {
-    color: white;
+    color:white;
 }
-
-#but {
-    margin-top: 0.5em;
-}
-
-.swal-title {
-    margin: 0px;
-    font-size: 1rem;
-    color:grey;
-}
-
-.swal-button {
-    padding: 7px 19px;
-    border-radius: 2px;
-    font-size: 12px;
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-  }
-
-  .swal-footer {
-    background-color: rgb(245, 248, 250);
-    margin-top: 32px;
-    border-top: 1px solid #E9EEF1;
-    overflow: hidden;
-  }
-
-  .headerBg {
-      display: flex;
-      flex-flow: column wrap;
-      height: 600px;
-      background-image: url(https://www.m1.com.sg/-/media/Images/Personal/My-Account/Rewards/ImageBanner/Rewards.jpg);
-      background-repeat: no-repeat;
-      background-size:contain;
+  
+    section {
+        background: white;
+        padding: 1rem 0 7rem;
     }
+
+    h2, h3 {
+        padding: 2rem 0 .75rem;
+        color: #4b4b4b;
+    }
+
+    .jumbotron {
+        position:relative;
+        overflow:hidden;
+        height: 100vh;
+      }
+      
+      .jumbotron .container {
+        position:relative;
+        z-index:2;
+        background:rgba(0,0,0,0.2);
+        padding:2rem;
+        border:1px solid rgba(0,0,0,0.1);
+        border-radius:3px;
+        margin: 4rem;
+      }
+      
+      .jumbotron-background {
+        object-fit:cover;
+        font-family: 'object-fit: cover;';
+        position:absolute;
+        top:0;
+        z-index:1;
+        width:100%;
+        height:100vh;
+        opacity:0.5;
+      }
+      
+      img.blur {
+          -webkit-filter: blur(2px);
+          filter: blur(2px);
+        filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+      
+      }
+
+      .site-footer
+      {
+        background-color:#26272b;
+        padding:45px 0 20px;
+        font-size:15px;
+        line-height:24px;
+        color:#737373;
+      }
+      .site-footer hr
+      {
+        border-top-color:#bbb;
+        opacity:0.5
+      }
+      .site-footer hr.small
+      {
+        margin:20px 0
+      }
+      .site-footer h6
+      {
+        color:#fff;
+        font-size:16px;
+        text-transform:uppercase;
+        margin-top:5px;
+        letter-spacing:2px
+      }
+      .site-footer a
+      {
+        color:#737373;
+      }
+      .site-footer a:hover
+      {
+        color:#3366cc;
+        text-decoration:none;
+      }
+      .footer-links
+      {
+        padding-left:0;
+        list-style:none
+      }
+      .footer-links li
+      {
+        display:block
+      }
+      .footer-links a
+      {
+        color:#737373
+      }
+      .footer-links a:active,.footer-links a:focus,.footer-links a:hover
+      {
+        color:#3366cc;
+        text-decoration:none;
+      }
+      .footer-links.inline li
+      {
+        display:inline-block
+      }
+      .site-footer .social-icons
+      {
+        text-align:right
+      }
+      .site-footer .social-icons a
+      {
+        width:40px;
+        height:40px;
+        line-height:40px;
+        margin-left:6px;
+        margin-right:0;
+        border-radius:100%;
+        background-color:#33353d
+      }
+      .copyright-text
+      {
+        margin:0
+      }
+      @media (max-width:991px)
+      {
+        .site-footer [class^=col-]
+        {
+          margin-bottom:30px
+        }
+      }
+      @media (max-width:767px)
+      {
+        .site-footer
+        {
+          padding-bottom:0
+        }
+        .site-footer .copyright-text,.site-footer .social-icons
+        {
+          text-align:center
+        }
+      }
+      .social-icons
+      {
+        padding-left:0;
+        margin-bottom:0;
+        list-style:none
+      }
+      .social-icons li
+      {
+        display:inline-block;
+        margin-bottom:4px
+      }
+      .social-icons li.title
+      {
+        margin-right:15px;
+        text-transform:uppercase;
+        color:#96a2b2;
+        font-weight:700;
+        font-size:13px
+      }
+      .social-icons a{
+        background-color:#eceeef;
+        color:#818a91;
+        font-size:16px;
+        display:inline-block;
+        line-height:44px;
+        width:44px;
+        height:44px;
+        text-align:center;
+        margin-right:8px;
+        border-radius:100%;
+        -webkit-transition:all .2s linear;
+        -o-transition:all .2s linear;
+        transition:all .2s linear
+      }
+      .social-icons a:active,.social-icons a:focus,.social-icons a:hover
+      {
+        color:#fff;
+        background-color:#29aafe
+      }
+      .social-icons.size-sm a
+      {
+        line-height:34px;
+        height:34px;
+        width:34px;
+        font-size:14px
+      }
+      .social-icons a.facebook:hover
+      {
+        background-color:#3b5998
+      }
+      .social-icons a.twitter:hover
+      {
+        background-color:#00aced
+      }
+      .social-icons a.linkedin:hover
+      {
+        background-color:#007bb6
+      }
+      .social-icons a.dribbble:hover
+      {
+        background-color:#ea4c89
+      }
+      @media (max-width:767px)
+      {
+        .social-icons li.title
+        {
+          display:block;
+          margin-right:0;
+          font-weight:600
+        }
+    }
+
+    div.dataTables_filter input {
+      border: 1px solid grey;
+      border-radius: 5px;
+    }
+
+    #about {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+  #about p {
+    padding: 0 4rem;
+  }
+
+  #home {
+    padding: 0;
+  }
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.legendTitle {
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
+
+
+
+
+
 

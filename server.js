@@ -1,6 +1,7 @@
 // Express global configuration
 const express = require('express'); 
 const app = express();
+const moment = require('moment');
 
 const assert = require('assert');
 
@@ -31,7 +32,7 @@ app.use(express.json());
 // Express session
 app.use(
     session({
-      secret: 'secret',
+      secret: 'huasdlkasdlsak',
       resave: true,
       saveUninitialized: true
     })
@@ -39,6 +40,7 @@ app.use(
   
   // Passport
   app.use(passport.initialize());
+
   app.use(passport.session());
   
   // Connect flash
@@ -69,13 +71,14 @@ const mongoose = require('mongoose');
 const user = require('./models/User');
 const rewards = require('./models/Rewards');
 
-// Global Configuration
-const mongoURI = process.env.MONGODB_URI
+// Connection URL
+const mongoURI = "mongodb://localhost:27017/User"
+// database connection short form
 const db = mongoose.connection;
 
-// Connect to Mongo
+// Connect Mongoose to the server
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true}, () => {
-	console.log('the connection with mongod is established')
+  console.log('the connection with mongod is established')
 })
 
 // Connection Error/Success - optional but can be helpful
