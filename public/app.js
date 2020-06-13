@@ -7,6 +7,7 @@ $(() => {
 
     /// initialize datatable for rewardspage
     $('#table_id').DataTable({ 
+        responsive: true,
         dom: 'Bfrtip',
         buttons: [
             "csv", "pdf", "print"
