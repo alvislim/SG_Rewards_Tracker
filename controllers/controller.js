@@ -94,24 +94,27 @@ const page = {
 
     // Dashboard
     dashboard: async (req, res) => {
-        try {
+        try {   
             await res.render('dashboard.ejs', {
                 name: req.user.name,
                 email: req.user.email
             })
         } catch (err) {
             req.flash('error_msg', 'We are currently encountering technical issues with our server, please try again later')
-            res.redirect('logine.ejs')
+            res.redirect('/login')
         }
     },
 
     rewardsPage: async (req, res) => {
         try {
+            const currentDate = moment()
+            const threeDaysFromCurrent = moment().add(3, 'days')
             const rewards = await Rewards.find({})
             res.render('rewardspage.ejs', { rewards, email: req.user.email, moment: moment });
         } catch (err) {
             req.flash('error_msg', 'We are currently encountering technical issues with our server, please try again later')
             res.redirect('/dashboard')
+            console.log(err)
         }
     },
 

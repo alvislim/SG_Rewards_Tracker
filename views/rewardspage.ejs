@@ -10,13 +10,13 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-custom sticky-top" style="width: 100%;">
-    <a class="navbar-brand">Rewards Tracker</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#colNav">
+  <nav class="navbar navbar-expand-md navbar-custom sticky-top">
+    <a class="navbar-brand h1">Rewards Tracker</a>
+    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#colNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="navbar-collapse navbar-top-collapse" id="colNav">
-      <ul class="navbar-nav mx-auto pr-5">
+    <div class="collapse navbar-collapse" id="colNav">
+      <ul class="navbar-nav ml-auto mr-5">
         <li class="nav-item">
           <a class="nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -32,8 +32,8 @@
         <ul class="nav navbar-nav">
         </ul>
     </div>
-    <div class="pull-right" id="colNav">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="colNav">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a href="/logout" class="nav-link">Logout</a>
         </li>
@@ -54,12 +54,13 @@
     </div>
   </div>
   <div class="legendTitle">
-     <span class="badge mb-2">Legends</span>
+    <span class="badge mb-2">Legends</span>
   </div>
   <div class="legend">
     <span class="badge table-success mr-2 pb-1 pt-1" style="color:  rgb(77, 72, 72);">Redeemed</span>
     <span class="badge table-warning mr-2 pb-1 pt-1" style="color:  rgb(77, 72, 72);">Expiring in 3 days</span>
     <span class="badge table-danger mr-2 pb-1 pt-1" style="color:  rgb(77, 72, 72);">Expired</span>
+    <span class="badge table-info mr-2 pb-1 pt-1" style="color: rgb(77, 72, 72);">Active</span>
   </div>
 
   <div class="table-responsive-sm pb-3 ml-3 mr-3">
@@ -71,6 +72,7 @@
           <th scope="col">Expiry Date</th>
           <th scope="col">Where can I use them rewards?</th>
           <th scope="col">Redeemed?</th>
+          <th scope="col">Status</th>
           <th scope="col">Options</th>
         </tr>
       </thead>
@@ -84,24 +86,34 @@
         <% let rewardsExpiryDate = moment(rewards[key].rewardsExpiry) %>
         <% let currentDate = moment() %>
         <% let lessThan3 = rewardsExpiryDate.diff(currentDate, 'day') %>
-        <% if (lessThan3 < 4 && lessThan3 > 0 && rewards[key].rewardsCheck === false ) { %>
+        <% if (lessThan3 < 4 && lessThan3 >= 0 && rewards[key].rewardsCheck === false ) { %>
         <% var orange = "table-warning" %>
         <% } else if (lessThan3 < 0 && rewards[key].rewardsCheck === false) { %>
         <% var orange = "table-danger" %>
         <% } else { %>
-          <% var orange = "" %>
-          <% } %>
+        <% var orange = "active" %>
+        <% } %>
 
+        <% let warning = lessThan3 < 4 && lessThan3 >= 0 && rewards[key].rewardsCheck === false ? "Expiring!" : "" %>
+        <% let danger = lessThan3 < 0 && rewards[key].rewardsCheck === false ? "Expired!" : "" %>
+        <% let success = rewards[key].rewardsCheck === true ? "Redeemed" : "" %>
+        <% let active = !warning && !danger && !success ? "Active" : "" %>
 
-        <tr class="table <%= redeeemed %> <%= orange %>" style="color: rgb(77, 72, 72);">
+        <tr class="table <%= redeeemed %> <%= orange %>" style="color: rgb(90, 85, 85);">
           <td><%= rewards[key].rewardsType %> </td>
           <td><%= rewards[key].rewardsAmount %> </td>
-          <td><%=  time  %> </td>
+          <td><%= time %> </td>
           <td><%= rewards[key].rewardsLocation %> </td>
           <td>
             <form action="/rewardspage/checkform/<%= rewards[key]._id %>/?_method=PUT" method="POST" class="checkForm">
               <input type="checkbox" name="rewardsCheck" onChange="this.form.submit()" <%= checked %>>
             </form>
+          </td>
+          <td>
+            <span class="badge badge-warning"><%= warning %></span>
+            <span class="badge badge-success"><%= success %></span>
+            <span class="badge badge-danger"><%= danger %></span>
+            <span class="badge badge-info"><%= active %></span>
           </td>
           <td>
             <div class="input-group mb-1">

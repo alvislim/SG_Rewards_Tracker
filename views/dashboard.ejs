@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <%- include('./partials/head.ejs') %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <%- include('./partials/head.ejs') %>
 </head>
+
 <body>
 
   <nav class="navbar navbar-expand-md navbar-custom sticky-top">
     <a class="navbar-brand h1">Rewards Tracker</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#colNav">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#colNav"
+    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="color: black;"></span>
     </button>
-    <div class="navbar-collapse navbar-top-collapse" id="colNav">
-      <ul class="navbar-nav mx-auto">
+    <div class="collapse navbar-collapse" id="colNav">
+      <ul class="navbar-nav ml-auto mr-5">
         <li class="nav-item">
           <a class="nav-link" href="/dashboard">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -27,109 +30,110 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Interim</a>
         </li>
-        <ul class="nav navbar-nav">
-        </ul>
     </div>
-    <div class="pull-right" id="colNav">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="colNav">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a href="/logout" class="nav-link">Logout</a>
         </li>
       </ul>
     </div>
   </nav>
-      <%- include('./partials/messages.ejs') %>
 
-      <div class="jumbotron jumbotron-fluid ">
-  
-        <div class="jumbotron-background">
-          <img src="https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" 
-          class="blur">
+  <%- include('./partials/messages.ejs') %>
+
+  <div class="jumbotron jumbotron-fluid bg-dark">
+    <div class="jumbotron-background">
+      <img
+        src="https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        class="blur">
+    </div>
+    <div class="container text-white">
+      <h1 class="display-4">Welcome <%= name %></h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+        featured content or information.</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <a class="btn btn-outline-light btn-lg" href="/rewardspage" role="button">Click here to start tracking your
+        rewards! &raquo;</a>
+    </div>
+  </div>
+
+  <!-- <div class="container"> -->
+  <div class="container pb-5">
+    <h2>Update Info</h2>
+    <p>This is it. You've made it so far. There is no going back.</p>
+    <p>We've been there. We understand the frustruation of losing your hard earned rewards. So we have come up with a
+      solution,
+      a simple rewards tracker which allows you to track all of them rewards in one place. Say goodbye to wasted rewards
+    </p>
+    <h3>Get lost and find yourself.</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi placeat dolor molestias facere veritatis culpa
+      amet fugiat debitis dolorem qui quidem
+      consequuntur mollitia, nesciunt pariatur voluptatum! Dolor accusamus labore, sequi.
+    </p>
+  </div>
+  <!-- </div> -->
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>Front End</h6>
+          <ul class="footer-links">
+            <li>Html</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>BootStrap</li>
+          </ul>
         </div>
-      
-        <div class="container text-white">
-      
-          <h1 class="display-4">Welcome <%= name %></h1>
-          <p class="lead text-white">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-          <hr class="my-4">
-          <a class="btn btn-outline-light btn-lg" href="/rewardspage" role="button">Click here to start tracking your rewards! &raquo;</a>
-          
+
+        <div class="col-xs-6 col-md-3">
+          <h6>BackEnd</h6>
+          <ul class="footer-links">
+            <li><a href="#">Nodejs</a></li>
+            <li><a href="#">Expressjs</a></li>
+            <li><a href="#">JQuery</a></li>
+            <li><a href="#">Mongoose</a></li>
+            <li><a href="#">EJS</a></li>
+            <li><a href="#">PassportJS</a></li>
+            <li><a href="#">Bcrypt</a></li>
+            <li><a href="#">Express Session</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Others</h6>
+          <ul class="footer-links">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Mlab</a></li>
+            <li><a href="#">Heroku</a></li>
+          </ul>
         </div>
       </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by
+            <a href="#">Might-Caverns</a>.
+          </p>
+        </div>
 
-      <!-- <div class="container"> -->
-        <div class="container pb-5">
-        <h2>Update Info</h2>
-        <p>This is it. You've made it so far. There is no going back.</p>
-        <p>We've been there. We understand the frustruation of losing your hard earned rewards. So we have come up with a solution,
-          a simple rewards tracker which allows you to track all of them rewards in one place. Say goodbye to wasted rewards
-        </p>
-        <h3>Get lost and find yourself.</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi placeat dolor molestias facere veritatis culpa
-          amet fugiat debitis dolorem qui quidem
-          consequuntur mollitia, nesciunt pariatur voluptatum! Dolor accusamus labore, sequi.
-        </p>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
       </div>
-      <!-- </div> -->
-      
-      <footer class="site-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-6">
-              <h6>Front End</h6>
-              <ul class="footer-links">
-                <li>Html</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>BootStrap</li>
-              </ul>
-            </div>
-    
-            <div class="col-xs-6 col-md-3">
-              <h6>BackEnd</h6>
-              <ul class="footer-links">
-                <li><a href="#">Nodejs</a></li>
-                <li><a href="#">Expressjs</a></li>
-                <li><a href="#">JQuery</a></li>
-                <li><a href="#">Mongoose</a></li>
-                <li><a href="#">EJS</a></li>
-                <li><a href="#">PassportJS</a></li>
-                <li><a href="#">Bcrypt</a></li>
-                <li><a href="#">Express Session</a></li>
-              </ul>
-            </div>
-    
-            <div class="col-xs-6 col-md-3">
-              <h6>Others</h6>
-              <ul class="footer-links">
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">Mlab</a></li>
-                <li><a href="#">Heroku</a></li>
-              </ul>
-            </div>
-          </div>
-          <hr>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
-              <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
-           <a href="#">Might-Caverns</a>.
-              </p>
-            </div>
-    
-            <div class="col-md-4 col-sm-6 col-xs-12">
-              <ul class="social-icons">
-                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-              </ul>
-            </div>
-          </div>
-        </div>
-    </footer>
-    
+    </div>
+  </footer>
+
 </body>
+
 </html>

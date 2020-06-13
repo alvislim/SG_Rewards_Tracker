@@ -10,7 +10,7 @@ body {
 }
 
 .navbar-custom { 
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
 } 
 
 .navbar-custom .nav-link {
@@ -64,20 +64,19 @@ body {
         color: #4b4b4b;
     }
 
-    .jumbotron {
+     .jumbotron {
         position:relative;
         overflow:hidden;
         height: 100vh;
       }
       
-      .jumbotron .container {
+       .jumbotron .container {
         position:relative;
         z-index:2;
         background:rgba(0,0,0,0.2);
         padding:2rem;
         border:1px solid rgba(0,0,0,0.1);
         border-radius:3px;
-        margin: 4rem;
       }
       
       .jumbotron-background {
@@ -89,14 +88,14 @@ body {
         width:100%;
         height:100vh;
         opacity:0.5;
-      }
-      
-      img.blur {
-          -webkit-filter: blur(2px);
-          filter: blur(2px);
+      } 
+       
+       img.blur {
+        -webkit-filter: blur(2px);
+        filter: blur(2px);
         filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
       
-      }
+      } 
 
       .site-footer
       {
@@ -293,7 +292,14 @@ body {
   justify-content: center;
   margin-top: 0;
 }
+.custom-toggler .navbar-toggler-icon { 
+  background-image: url( 
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+} 
 
+.custom-toggler.navbar-toggler { 
+  border-color: rgba(0, 0, 0, 0.5); 
+} 
 
 
 
