@@ -30,11 +30,6 @@ body {
     display: block;
 }
 
-.form {
-    margin-top: 1rem;
-    margin-left: 0.5rem;
-}
-
 .forminput {
     font-size: small;
 }
@@ -42,12 +37,6 @@ body {
 #user {
     color:grey;
     font-size: 2rem;
-}
-
-.wrapper {
-    display: flex;
-    margin-top: 1rem;
-    margin-left: 0.5rem;
 }
 
 .atag {
@@ -300,7 +289,6 @@ body {
 .custom-toggler.navbar-toggler { 
   border-color: rgba(0, 0, 0, 0.5); 
 } 
-
 
 
 

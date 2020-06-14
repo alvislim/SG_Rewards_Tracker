@@ -1,4 +1,4 @@
-const page = require('../controllers/controller')
+const page = require('../controllers/users')
 
 module.exports = app => {
         // Login Page

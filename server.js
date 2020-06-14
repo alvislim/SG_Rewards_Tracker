@@ -1,9 +1,6 @@
 // Express global configuration
 const express = require('express'); 
 const app = express();
-const moment = require('moment');
-
-const assert = require('assert');
 
 // Put delete request
 const methodOverride = require('method-override');
@@ -63,29 +60,24 @@ app.set('view engine', 'ejs');
 
 
 // Routes 
-require('./routes/index')(app);
+require('./routes/rewards')(app);
 require('./routes/user')(app);
 
 // MongoDB dependencies
 const mongoose = require('mongoose');
-const user = require('./models/User');
-const rewards = require('./models/Rewards');
+const User = require('./models/User');
+const Rewards = require('./models/Rewards');
 
 // Connection URL
 const mongoURI = process.env.MONGODB_URI;
-// database connection short form
-const db = mongoose.connection;
+
 
 // Connect Mongoose to the server
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true}, () => {
   console.log('the connection with mongod is established')
 })
 
-// Connection Error/Success - optional but can be helpful
-// Define callback functions for various events
-db.on('error', (err) => console.log(err.message + ' is mongod not running?'))
-db.on('connected', () => console.log('mongo connected: ', mongoURI))
-db.on('disconnected', () => console.log('mongo disconnected'))
+const email = require('./email')
 
 // Server
 app.listen(PORT, ()=> {

@@ -42,13 +42,11 @@
   </nav>
 
 
-  <div class="form">
-    <button class="btn btn-dark mx-2" id="add">
+  <div class="container">
+    <button class="btn btn-dark mt-3" id="add">
       Add a Rewards to track?
     </button>
-    <div class="wrapper">
       <%- include('./partials/messages.ejs') %>
-    </div>
     <div id="addform" class="hide">
       <%- include('./partials/addform.ejs') %>
     </div>
@@ -63,8 +61,9 @@
     <span class="badge table-info mr-2 pb-1 pt-1" style="color: rgb(77, 72, 72);">Active</span>
   </div>
 
-  <div class="table-sm pb-3 ml-3 mr-3">
-    <table id="table_id" class="table table-hover">
+  
+  <div class="container">
+    <table id="table_id" class="table table-hover" cellspacing="0" width="100%">
       <thead class="bg-dark">
         <tr style="color: white;">
           <th scope="col">Rewards Type</th>
@@ -78,9 +77,8 @@
       </thead>
       <tbody class="table table-hover">
         <% for (let key in rewards) { %>
-        <% if (rewards[key].email === email) { %>
         <% let checked = rewards[key].rewardsCheck  ? "checked" : "" %>
-        <% let time = moment(rewards[key].rewardsExpiry).format("ll, ddd") %>
+        <% let time = moment(rewards[key].rewardsExpiry).format("YYYY/MM/DD MMM") %>
         <% let redeeemed = rewards[key].rewardsCheck === true ? "table-success" : "" %>
 
         <% let rewardsExpiryDate = moment(rewards[key].rewardsExpiry) %>
@@ -134,11 +132,11 @@
         </tr>
 
         <% } %>
-        <% } %>
 
       </tbody>
     </table>
   </div>
+
 
   <footer class="site-footer">
     <div class="container">
