@@ -1,0 +1,114 @@
+[33mcommit 7bbc901344d93a2dbd47ee6468042f8797f9c640[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31mheroku/master[m[33m)[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Wed Jun 17 00:37:28 2020 +0800
+
+    set up cron interval at every 12noon
+
+[33mcommit 349db46e4b19c9b5e46a0e27f883366f61535e20[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Wed Jun 17 00:25:50 2020 +0800
+
+    test notification unli
+
+[33mcommit cb880c14f0c321f3b4036c33d3ebc5c38186da38[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Mon Jun 15 00:10:35 2020 +0800
+
+    added cronjob timing as 12noon daily
+
+[33mcommit 9cef9d8b4e4b16863f8d7ccfd570abc6a137a3f9[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Mon Jun 15 00:08:48 2020 +0800
+
+    added email notification
+
+[33mcommit a95b5e5132a1e58b272c42d3ae103f4fad05ffba[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Sat Jun 13 18:58:32 2020 +0800
+
+    edit compressed jumbotron img
+
+[33mcommit 676385d1b4d6e4b0a35c8c6add5b99aff72b591a[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Sat Jun 13 17:50:07 2020 +0800
+
+    remove nodemon from start
+
+[33mcommit dddc8568bf11f7553bf89c1213d4fe80fa37aaec[m
+Merge: e199db8 a52a6bb
+Author: alvislim <alvislws@gmail.com>
+Date:   Sat Jun 13 17:44:59 2020 +0800
+
+    Merge branch 'master' of github.com:alvislim/P2Interim
+
+[33mcommit e199db8aa0f15cf941bff70b51b56ae7f90b4760[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Sat Jun 13 17:44:09 2020 +0800
+
+    added server changes to enable registration
+
+[33mcommit 86ee7e8f752b5b3b22e80c298484099f81cf4c75[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Sat Jun 13 17:32:51 2020 +0800
+
+    rectify some changes to enable success registration
+
+[33mcommit a52a6bb5002f4a023c24c71fdd6df842cb469ece[m
+Author: alvislim <63903531+alvislim@users.noreply.github.com>
+Date:   Sat Jun 13 17:17:22 2020 +0800
+
+    Update README.md
+
+[33mcommit 013b34b05b2239ec44b19f017b40cb5e83a81e37[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Sat Jun 13 17:13:51 2020 +0800
+
+    further refine CSS and table data
+
+[33mcommit 8c3cd01b1daf9aa14ada2f2f35fddf7b09aedff3[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Fri Jun 12 01:12:35 2020 +0800
+
+    configured mongoURI for heroku
+
+[33mcommit 5e2a7bd9a9d34831367af94ee55b480b0c21443d[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Fri Jun 12 01:10:45 2020 +0800
+
+    added nabbar css custom style + table display logic
+
+[33mcommit 99249a18dad7a8a507ee9083e32da9d3a0a6371d[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Fri Jun 5 02:10:13 2020 +0800
+
+    updated package.json nodemon
+
+[33mcommit 6201ebd2420bde8822994469396e7e040c083cd5[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Fri Jun 5 02:06:10 2020 +0800
+
+    update mongoURI
+
+[33mcommit 29b21afb5223d2ca44c827c154ae5a4cb67991c9[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Fri Jun 5 02:00:58 2020 +0800
+
+    pushing latest code
+
+[33mcommit 33fb0226adc3ddfe4654a7f82bb4d3c83de7408c[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Sat May 23 18:55:27 2020 +0800
+
+    update path for heroku
+
+[33mcommit e28096701783b858c716341411e87861d7c76d0d[m
+Author: alvislim <alvislws@gmail.com>
+Date:   Sat May 23 18:04:15 2020 +0800
+
+    first commit
+
+[33mcommit c4ebfe2e98dcd1a313b0b4e429b6d9edf6203025[m
+Author: alvislim <63903531+alvislim@users.noreply.github.com>
+Date:   Sat May 23 17:59:07 2020 +0800
+
+    Initial commit
