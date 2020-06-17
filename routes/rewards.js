@@ -11,11 +11,14 @@ module.exports = app => {
     // Dashboard
     app.get('/dashboard', autheticationPassed, page.dashboard)
 
+    // Rewards page
+    app.get('/rewardspage', autheticationPassed, pages.rewardsPage)
+
     // Add new rewards
     app.post('/rewardspage', autheticationPassed, pages.addRewards)
 
-    // Rewards page
-    app.get('/rewardspage', autheticationPassed, pages.rewardsPage)
+    // delete rewards
+    app.delete('/rewardspage/:index', autheticationPassed, pages.deleteRewardsEntry)
 
     // edit rewards page
     app.get('/rewardspage/:index/edit', autheticationPassed, pages.editRewardsPage )
@@ -25,8 +28,5 @@ module.exports = app => {
 
     // update checkbox
     app.put('/rewardspage/checkform/:index', autheticationPassed, pages.updateCheckBox)
-
-    // delete rewards
-    app.delete('/rewardspage/:index', autheticationPassed, pages.deleteRewardsEntry)
 
 }

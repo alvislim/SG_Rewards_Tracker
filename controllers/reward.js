@@ -1,5 +1,6 @@
 const Rewards = require('../models/Rewards');
 const moment = require('moment');
+const rewards = require('../routes/rewards');
 
 const pages = {
     rewardsPage: async (req, res) => {
@@ -16,13 +17,16 @@ const pages = {
     // Add Rewards
     addRewards: async (req, res) => {
         try {
-            const { email, rewardsType, rewardsAmount, rewardsExpiry, rewardsLocation } = await req.body;
+            const { email, rewardsType, rewardsAmount, rewardsExpiry, rewardsLocation } = req.body;
             const newRewards = new Rewards({
                 email, rewardsType, rewardsAmount, rewardsExpiry, rewardsLocation
             })
             newRewards.email = await req.user.email
-            newRewards.rewards =
-                await newRewards.save()
+            if (!email || !rewardsType || !rewardsAmount || !rewardsLocation || rewardsExpiry) {
+                req.flash('error_msg', 'Please make sure you have enter all the form input field')
+                res.redirect('/rewardspage')
+            }
+            newRewards.rewards = await newRewards.save()
             req.flash('success_msg', 'You have added a rewards for tracking purposes!');
             res.redirect('/rewardspage')
         } catch (err) {
@@ -33,7 +37,7 @@ const pages = {
 
     editRewardsPage: async (req, res) => {
         try {
-            let index = await req.params.index
+            let index = req.params.index
             const result = await Rewards.findById(index)
             res.render('editrewards.ejs', { index, result })
         } catch (err) {
@@ -44,21 +48,20 @@ const pages = {
 
     updateRewards: async (req, res) => {
         try {
-            let index = await req.params.index
-            const { rewardsType, rewardsAmount, rewardsExpiry, rewardsLocation } = await req.body
+            let index = req.params.index
+            const { rewardsType, rewardsAmount, rewardsExpiry, rewardsLocation } = req.body
             const updatedRewards = await Rewards.findByIdAndUpdate(index, {
                 rewardsType: rewardsType,
                 rewardsAmount: rewardsAmount,
                 rewardsExpiry: rewardsExpiry,
                 rewardsLocation: rewardsLocation,
             })
-            if (!rewardsExpiry) {
-                req.flash('error_msg', 'Date field is empty!');
+            if (!rewardsExpiry || !rewardsAmount || !rewardsExpiry || !rewardsLocation) {
+                req.flash('error_msg', 'Please make sure you have enter all the form input field');
                 res.redirect(`/rewardspage/${index}/edit`)
-            } else {
-                req.flash('success_msg', 'You have successfully updated a rewards!');
-                res.redirect('/rewardspage')
             }
+            req.flash('success_msg', 'You have successfully updated a rewards!');
+            res.redirect('/rewardspage')
         }
         catch (err) {
             req.flash('error_msg', 'We are having some issues with our server, please try again later');
@@ -68,7 +71,7 @@ const pages = {
 
     deleteRewardsEntry: async (req, res) => {
         try {
-            let index = await req.params.index
+            let index = req.params.index
             await Rewards.findByIdAndRemove(index)
             req.flash('success_msg', 'You have successfully deleted a rewards!');
             res.redirect('/rewardspage')
@@ -80,7 +83,7 @@ const pages = {
 
     updateCheckBox: async (req, res) => {
         try {
-            let index = await req.params.index
+            let index = req.params.index
             const checkBox = await Rewards.findById(index, {
                 rewardsCheck: 1,
                 _id: 0

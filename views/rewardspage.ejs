@@ -43,7 +43,7 @@
 
 
   <div class="container">
-    <button class="btn btn-dark mt-3" id="add">
+    <button class="btn btn-dark mt-3 mb-3" id="add">
       Add a Rewards to track?
     </button>
       <%- include('./partials/messages.ejs') %>
@@ -121,7 +121,7 @@
                 <div class="dropdown-menu">
                   <form action="/rewardspage/<%= rewards[key]._id  %>?_method=DELETE" method="POST"
                     class="myFormDelete">
-                    <button class="dropdown-item btn-delete">Delete</button>
+                    <button class="dropdown-item btn-delete" type="submit">Delete</button>
                   </form>
 
                   <a href="/rewardspage/<%= rewards[key]._id %>/edit" class="dropdown-item">Edit</a>
