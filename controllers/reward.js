@@ -22,16 +22,13 @@ const pages = {
                 email, rewardsType, rewardsAmount, rewardsExpiry, rewardsLocation
             })
             newRewards.email = await req.user.email
-            if (!email || !rewardsType || !rewardsAmount || !rewardsLocation || rewardsExpiry) {
-                req.flash('error_msg', 'Please make sure you have enter all the form input field')
-                res.redirect('/rewardspage')
-            }
             newRewards.rewards = await newRewards.save()
             req.flash('success_msg', 'You have added a rewards for tracking purposes!');
             res.redirect('/rewardspage')
         } catch (err) {
-            req.flash('error_msg', 'We are currently encountering technical issues with our server, please try again later')
+            req.flash('error_msg', 'Please make sure your all the fields are filled!')
             res.redirect('/rewardspage')
+            console.log(err)
         }
     },
 

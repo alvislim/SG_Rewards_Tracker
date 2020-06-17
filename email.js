@@ -31,7 +31,8 @@ const email = cron.schedule("0 12 * * *", () => {
             $lt: threeDaysFromCurrent
         },
         rewardsCheck: false
-    }).then((rewardss)=> {
+    }) 
+    .then((rewardss)=> {
         for (let key in rewardss) {
             let test = rewardss[key].email
             users.push(test)
@@ -57,4 +58,3 @@ const email = cron.schedule("0 12 * * *", () => {
 })
 
 module.exports = { email };
-
