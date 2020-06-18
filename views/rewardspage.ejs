@@ -120,7 +120,7 @@
                   aria-haspopup="true" aria-expanded="false">Action</button>
                 <div class="dropdown-menu">
                   <form action="/rewardspage/<%= rewards[key]._id  %>?_method=DELETE" method="POST"
-                    class="myFormDelete">
+                    id="<%= rewards[key]._id %>">
                     <button class="dropdown-item btn-delete" type="submit">Delete</button>
                   </form>
 

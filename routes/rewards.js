@@ -5,6 +5,8 @@ const page = require('../controllers/users')
 const { autheticationPassed } = require('../config/auth')
 
 module.exports = app => {
+    app.get('/health', pages.health)
+    
     // Home Page
     app.get('/', page.homePage)
 

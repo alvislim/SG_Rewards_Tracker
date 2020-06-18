@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 
 const email = cron.schedule("0 04 * * *", () => {
     // ensure database connection is established in order to query
-    const mongoURI = process.env.MONGODB_URI;
+    const mongoURI = process.env.MONGODB_URI
     mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
         console.log('the connection with mongod is established')
     })

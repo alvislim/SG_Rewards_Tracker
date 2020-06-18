@@ -97,6 +97,10 @@ const pages = {
             res.redirect('/rewardspage')
         }
     },
+
+    health: async (req, res) => {
+        res.send('ok');
+    }
 }
 
 module.exports = pages;

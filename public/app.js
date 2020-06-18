@@ -42,21 +42,22 @@ $(() => {
     });
 
     // delete form
-    // $('.btn-delete').click(function (e) {
-    //     e.preventDefault();
-    //     swal({
-    //         title: "Are you sure?",
-    //         text: "You will not be able to recover this imaginary rewards!",
-    //         icon: 'warning',
-    //         buttons: {
-    //             cancel: true,
-    //             delete: 'Yes, Delete It'
-    //         }
-    //     }).then(function (isConfirmed) {
-    //         if (isConfirmed) $('#myFormDelete').submit();
-    //         else e.preventDefault();
-    //     });
-    // });
-
+    $('.btn-delete').click(function (e) {
+       const current = e.target;
+       e.preventDefault();
+        swal({
+            title: "Are you sure?",
+            text: "You will not be able to recover this imaginary rewards!",
+            icon: 'warning',
+            buttons: {
+                cancel: true,
+                delete: 'Yes, Delete It'
+            }
+        }).then(function (isConfirmed) {
+            if (isConfirmed) $(`#${current.parentNode.id}`).submit();
+            else e.preventDefault();
+        });
+    });
 })
+
 
