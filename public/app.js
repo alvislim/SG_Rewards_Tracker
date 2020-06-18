@@ -5,13 +5,27 @@ $(() => {
         else $('#addform').addClass('hide')
     })
 
+    // Show password toggle
+    $(".showPw a").on('click', function(e) {
+        e.preventDefault();
+        if($('.showPw input').attr("type") == "text"){
+            $('.showPw input').attr('type', 'password');
+            $('.showPw i').addClass( "fa-eye-slash" );
+            $('.showPw i').removeClass( "fa-eye" );
+        }else if($('.showPw input').attr("type") == "password"){
+            $('.showPw input').attr('type', 'text');
+            $('.showPw i').removeClass( "fa-eye-slash" );
+            $('.showPw i').addClass( "fa-eye" );
+        }
+    });
+
     /// initialize datatable for rewardspage
-    $('#table_id').DataTable({ 
+    $('#table_id').DataTable({
         responsive: true,
-        "scrollY":        "400px",
-        "scrollX":        "400px",
+        "scrollY": "400px",
+        "scrollX": "400px",
         "scrollCollapse": true,
-        "paging":         false,
+        "paging": false,
         dom: 'Bfrtip',
         buttons: [
             "csv", "pdf", "print"
@@ -43,8 +57,8 @@ $(() => {
 
     // delete form
     $('.btn-delete').click(function (e) {
-       const current = e.target;
-       e.preventDefault();
+        const current = e.target;
+        e.preventDefault();
         swal({
             title: "Are you sure?",
             text: "You will not be able to recover this imaginary rewards!",
