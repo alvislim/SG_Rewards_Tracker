@@ -5,9 +5,9 @@ const Rewards = require('./models/Rewards');
 const mongoose = require('mongoose')
 
 
-const email = cron.schedule("0 04 * * *", () => {
+const email = cron.schedule("* * * * *", () => {
     // ensure database connection is established in order to query
-    const mongoURI = process.env.MONGODB_URI
+    const mongoURI = process.env.MONGODB_URI;
     mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
         console.log('the connection with mongod is established')
     })
@@ -20,7 +20,7 @@ const email = cron.schedule("0 04 * * *", () => {
         }
     });
     
-    const currentDate = moment()
+    const currentDate = moment().diff(1, 'days')
     const threeDaysFromCurrent = moment().add(4, 'days')
     let expiring = [];
     let users = [];
@@ -45,7 +45,7 @@ const email = cron.schedule("0 04 * * *", () => {
                     subject: 'You have got Rewards expiring soon!',
                     text: 'You have got rewards that is expiring in 3 days time! Login here to view your overall rewards https://mighty-caverns-14844.herokuapp.com/'
                 };
-    
+                console.log(uniqueUsers)
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {
                         console.log(error);

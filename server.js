@@ -69,7 +69,7 @@ const User = require('./models/User');
 const Rewards = require('./models/Rewards');
 
 // Connection URL
-const mongoURI = process.env.MONGODB_URI
+const mongoURI = process.env.MONGODB_URI;
 
 
 // Connect Mongoose to the server
