@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 const moment = require('moment');
 const Rewards = require('./models/Rewards');
 const mongoose = require('mongoose')
+const password = require('./config/password')
 
 
 const email = cron.schedule("0 4 * * *", () => {
@@ -16,7 +17,7 @@ const email = cron.schedule("0 4 * * *", () => {
         service: 'gmail',
         auth: {
             user: 'singaporerewardstracker@gmail.com',
-            pass: 'Hateherla1!'
+            pass: password.password
         }
     });
     
