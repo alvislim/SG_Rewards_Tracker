@@ -23,7 +23,7 @@ module.exports = app => {
     app.delete('/rewardspage/:index', autheticationPassed, pages.deleteRewardsEntry)
 
     // edit rewards page
-    app.get('/rewardspage/:index/edit', autheticationPassed, pages.editRewardsPage )
+    app.get('/rewardspage/:index/edit', autheticationPassed, pages.editRewardsPage)
 
     // update rewards
     app.put('/rewardspage/:index/', autheticationPassed, pages.updateRewards)

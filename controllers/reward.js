@@ -1,6 +1,5 @@
 const Rewards = require('../models/Rewards');
 const moment = require('moment');
-const rewards = require('../routes/rewards');
 
 const pages = {
     rewardsPage: async (req, res) => {
@@ -90,8 +89,14 @@ const pages = {
             const updatedRewards = await Rewards.findByIdAndUpdate(index, {
                 rewardsCheck: checkBoxValue,
             })
-            req.flash('success_msg', 'You have successfully redeemed a reward!');
-            res.redirect('/rewardspage')
+            if (req.body.rewardsCheck === 'on') {
+                req.flash('success_msg', 'You have successfully redeemed a reward!');
+                res.redirect('/rewardspage')
+            } else {
+                req.flash('success_msg', 'You have successfully unredeemed a reward!');
+                res.redirect('/rewardspage')
+            }
+
         } catch (err) {
             req.flash('error_msg', 'We are having some issues with our server, please try again later');
             res.redirect('/rewardspage')

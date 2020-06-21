@@ -2,6 +2,8 @@
 const User = require('../models/User');
 const Rewards = require('../models/Rewards');
 
+const mongoose = require('mongoose');
+
 // Bcrypt for encrypted password
 const bcrypt = require('bcryptjs');
 
@@ -16,7 +18,7 @@ const page = {
         res.render('homepage.ejs')
     },
 
-    login: (req, res) => {
+    login: async (req, res) => {
         res.render('login.ejs')
     },
 
@@ -85,17 +87,17 @@ const page = {
     },
     // Login Handler
     loginHandler: (req, res, next) => {
-        passport.authenticate('local', {
-            successRedirect: '/dashboard',
-            failureRedirect: '/login',
-            failureFlash: true
-        })(req, res, next);
+            passport.authenticate('local', {
+                successRedirect: '/dashboard',
+                failureRedirect: '/login',
+                failureFlash: true
+            })(req, res, next);
     },
 
     // Dashboard
     dashboard: async (req, res) => {
         try {
-            await res.render('dashboard.ejs', {
+             res.render('dashboard.ejs', {
                 name: req.user.name,
                 email: req.user.email
             })
@@ -106,9 +108,9 @@ const page = {
     },
 
     logoutHandler: (req, res) => {
-        req.logout();
-        req.flash('success_msg', 'You are logged out');
-        res.redirect('/login')
+            req.logout();
+            req.flash('success_msg', 'You are logged out');
+            res.redirect('/login')
     },
 
     // About us

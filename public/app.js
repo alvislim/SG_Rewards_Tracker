@@ -22,10 +22,6 @@ $(() => {
     /// initialize datatable for rewardspage
     $('#table_id').DataTable({
         responsive: true,
-        "scrollY": "400px",
-        "scrollX": "400px",
-        "scrollCollapse": true,
-        "paging": false,
         dom: 'Bfrtip',
         buttons: [
             "csv", "pdf", "print"
