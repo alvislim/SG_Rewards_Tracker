@@ -9,7 +9,7 @@ https://mighty-caverns-14844.herokuapp.com/
 - Include all **RESTful routes** and a full **CRUD** application.
 - Deployed online via **Heroku**
 
-## Technologies / Node.JS libraries used and rationale
+## Technologies / Node.JS libraries utilized
 ### 1. EJS
 To generate HTML with plain javascript to append to frontend.
 ### 2. Method-override
