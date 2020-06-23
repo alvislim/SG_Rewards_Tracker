@@ -1,4 +1,4 @@
-# P2Interim
+# Rewards Tracker
 
 ## Project Demo 
 https://mighty-caverns-14844.herokuapp.com/
