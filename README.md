@@ -21,7 +21,7 @@ To handle authenticate requests
 ### 5. Mongoose
 Database for application, which helps in schema validation, and to translate between objects in code and the representations of those objects in MongoDB
 ### 6. Connect-flash
-Storing of messages, and displaying it on frontend whenever user perform a CRUD operation and is being redirected.
+Storing of messages, and displaying it on frontend whenever user perform a CRUD operation when being redirected.
 ### 7. Express-session
 - To store the user state with each given being assiged a unique session. 
 - Ecrypting cookies
@@ -32,7 +32,7 @@ Enhanced features for HTML table
 ### 10. Nodemailer
 To allow server to send email notification to user
 ### 11. Node-cron
-To schedule task on specific timing for server to send email
+To schedule daily task on specific timing for server to send email
 ### 12. Bootstrap
 CSS framework for HTML and CSS design templates
 
