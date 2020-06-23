@@ -9,6 +9,13 @@ https://mighty-caverns-14844.herokuapp.com/
 - Include all **RESTful routes** and a full **CRUD** application.
 - Deployed online via **Heroku**
 
+## Project Scope
+- Allow users to create, delete, update, view rewards to track individual rewards expiry date. 
+- User will also be able to export via PDF, Print and CSV their created rewards.
+- To send email notification to Users daily to inform them about their rewards which is near expiring if they happen to have one.
+- Include sign up/log in functionality, with encrypted passwords
+- Ensure application is fully mobile responsive
+
 ## Technologies / Node.JS libraries utilized
 ### 1. EJS
 To generate HTML with plain javascript to append to frontend.
