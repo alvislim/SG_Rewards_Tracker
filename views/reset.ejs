@@ -43,35 +43,20 @@
   <div class="row pb-5">
     <div class="col-md-6 m-auto">
       <div class="card card-body">
-        <h1 class="text-center mb-3"><svg class="bi bi-box-arrow-in-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M8.146 11.354a.5.5 0 0 1 0-.708L10.793 8 8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
-          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 1 8z"/>
-          <path fill-rule="evenodd" d="M13.5 14.5A1.5 1.5 0 0 0 15 13V3a1.5 1.5 0 0 0-1.5-1.5h-8A1.5 1.5 0 0 0 4 3v1.5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-8A.5.5 0 0 1 5 13v-1.5a.5.5 0 0 0-1 0V13a1.5 1.5 0 0 0 1.5 1.5h8z"/>
-        </svg>Login</h1>
+        <h1 class="text-center mb-3">
+                     Reset Password
+        </h1>
         <%- include('./partials/messages.ejs') %>
-        <form action="/login" method="POST">
+        <form action="/reset/<%= id %>/?_method=PUT" method="POST">
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required="true" class="form-control password"
+              placeholder="Enter your new password"  />
           </div>
-          <div class="form-group">
-          <label for="password">Password</label>
-          <div class="input-group showPw">
-            <input type="password" id="password" name="password" class="form-control password" placeholder="Enter Password" />
-            <div class="input-group-addon">
-              <div class="input-group-append">
-                <span class="input-group-text"><a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a></span>
-              </div>
-            </div>
-          </div>
-        </div>
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <button type="submit" class="btn btn-primary btn-block">
+            Submit
+          </button>
         </form>
-        
-         <div>
-          <p class="lead mt-4"> No Account? <a href="/register">Register</a>  </p>
-          <p class="lead mt-4"> Forgot your Password? Click <a href="/forgotpw">Here</a> </p>
-         </div> 
       </div>
     </div>
   </div>

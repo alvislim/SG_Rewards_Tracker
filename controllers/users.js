@@ -1,8 +1,9 @@
 // Require database
 const User = require('../models/User');
 const Rewards = require('../models/Rewards');
-
+const nodemailer = require("nodemailer");
 const mongoose = require('mongoose');
+const password = require('../config/password')
 
 // Bcrypt for encrypted password
 const bcrypt = require('bcryptjs');
@@ -87,17 +88,17 @@ const page = {
     },
     // Login Handler
     loginHandler: (req, res, next) => {
-            passport.authenticate('local', {
-                successRedirect: '/dashboard',
-                failureRedirect: '/login',
-                failureFlash: true
-            })(req, res, next);
+        passport.authenticate('local', {
+            successRedirect: '/dashboard',
+            failureRedirect: '/login',
+            failureFlash: true
+        })(req, res, next);
     },
 
     // Dashboard
     dashboard: async (req, res) => {
         try {
-             res.render('dashboard.ejs', {
+            res.render('dashboard.ejs', {
                 name: req.user.name,
                 email: req.user.email
             })
@@ -108,15 +109,84 @@ const page = {
     },
 
     logoutHandler: (req, res) => {
-            req.logout();
-            req.flash('success_msg', 'You are logged out');
-            res.redirect('/login')
+        req.logout();
+        req.flash('success_msg', 'You are logged out');
+        res.redirect('/login')
     },
 
     // About us
     about: (req, res) => {
         res.render('about.ejs')
+    },
+
+    forgotpw: (req, res) => {
+        res.render('forgetpw.ejs')
+    },
+
+    resetpwemail: (req, res) => {
+        const reqEmail = req.body.email
+        const search = User.findOne({ email: reqEmail })
+            .then(result => {
+                console.log(result)
+
+                var transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: 'singaporerewardstracker@gmail.com',
+                        pass: password.password
+                    }
+                });
+
+                var mailOptions = {
+                    from: 'singaporerewardstracker@gmail.com',
+                    to: result.email,
+                    subject: 'Singapore Rewards Tracker Password Reset Link',
+                    text: `Click on the below link to reset your password \n https://mighty-caverns-14844.herokuapp.com/reset/${result._id}`
+                };
+
+                transporter.sendMail(mailOptions, function (error, info) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log('Email sent: ' + info.response);
+                        req.flash('success_msg', 'We have sent an reset email link to your designated email');
+                        res.redirect('/login')
+                    }
+                });
+            })
+    },
+
+    resetpwpage: (req, res) => {
+        let id = req.params.id
+        res.render('reset.ejs', { id })
+    },
+
+    resetpw: (req, res) => {
+
+        const id = req.params.id
+        let pw = req.body.password
+
+        bcrypt.genSalt(10, async (err, salt) => {
+            try {
+                const hash = await bcrypt.hash(pw, salt)
+                // set password to hashed
+                pw = hash;
+                let reset = User.findByIdAndUpdate(id, {
+                    password: pw
+                }).then(result => {
+                    req.flash('success_msg', 'Password reset success!');
+                    res.redirect('/login')
+                }).catch(err => {
+                    console.log(err)
+                    req.flash('error', 'We are currently facing some technical issue, please try again');
+                    res.redirect('/login')
+                })
+            } catch (err) {
+                console.log(err)
+            }
+        })
     }
+
 }
 
 module.exports = page;
