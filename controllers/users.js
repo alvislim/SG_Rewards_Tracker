@@ -127,7 +127,10 @@ const page = {
         const reqEmail = req.body.email
         const search = User.findOne({ email: reqEmail })
             .then(result => {
-                console.log(result)
+                if (!result) {
+                    req.flash('error', 'Please enter a valid email');
+                    res.redirect('/forgotpw')
+                }
 
                 var transporter = nodemailer.createTransport({
                     service: 'gmail',
@@ -185,6 +188,7 @@ const page = {
                 console.log(err)
             }
         })
+
     }
 
 }
