@@ -151,3 +151,5 @@ Half a day effort, as database and authentication layer has been established, wi
 - MomentJS - Wrapper to handle Date object
 - NodeMailer - To allow server to send email to user
 - NodeCron - to schedule jobs daily at 12pm to trigger email notification
+### Notes
+Half  day effort, as nodemailer has already been setup, what needs to be done is to schedule a CRON job
