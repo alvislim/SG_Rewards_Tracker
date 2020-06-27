@@ -4,7 +4,7 @@
 - [Project Demo](#Project-Demo)
 - [Application MVP](#Application-MVP)
 - [Project Scope](#Project-Scope)
-- [Technologies / Dependencies](#Technologies-/-Dependencies)
+- [Dependencies](#Dependencies)
 - [User Stories](#User-Stories)
 
 ## Project Demo 
@@ -24,7 +24,7 @@ https://mighty-caverns-14844.herokuapp.com/
 - Reset password functionality, with weblink trigger to user onboarded email addresses
 - Ensure application is fully mobile responsive
 
-## Technologies / Dependencies
+## Dependencies
 ### 1. EJS
 To generate HTML with plain javascript to append to frontend.
 ### 2. Method-override
