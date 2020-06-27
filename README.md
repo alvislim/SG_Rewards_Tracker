@@ -60,7 +60,8 @@ A replacement for JavaScript's window. alert() function that shows very pretty m
 - Bootstrap for the CSS framework
 - EJS - To generate HTML with plain javascript to append to frontend.
 ### Notes
-- Estimated 3 hours efforts
+- 1 day effort, first have to draft up the wireframe / skeleton of the landing page, and to take into consideration which bootstrap component to utilized.
+- Setting up a basic express servers with all the dependencies
 
 ### US.2
 **As a** avid singapore rewards hunter,
@@ -69,7 +70,7 @@ A replacement for JavaScript's window. alert() function that shows very pretty m
 - when click on sign up, user will be able to navigate to register page
 - when user is at the registration page, user will be able to onboard successfully
 - When click on login, user will be navigate to login page
-- When user is at login page, user will be able to login with the onboarded crendetial
+- When user is at login page, user will be able to login successfuly
 ### Dependencies
 - Bootstrap for the CSS framework
 - PassportJS - authentication layer
@@ -80,9 +81,18 @@ A replacement for JavaScript's window. alert() function that shows very pretty m
 - Method-override - to avail usage of HTTP verbs for CRUD operation
 - EJS - To generate HTML with plain javascript to append to frontend.
 ### Notes
-- Estimated 2 days effort, inclusive of taking database design into consideration
+- Estimated 2 days effort, inclusive of taking database design into consideration, authentication layer, happy and error scenarios, and wireframes for login and signup landing page
 
-
-
-
-
+### US.3
+**As a** avid singapore rewards hunter,
+**I want** to be able to navigate to dashboard after a successful login
+### Acceptance Criteria
+- A welcome banner - With a welcome specific to your onboarded name e.g. Welcome Alvis, a CTA to navigate users to rewards tracking page
+- A section with a brief description of what user is able to do and a change log to let user know the latest updates the website has
+- A banner with Home, Rewards overview and logout CTA
+### Dependencies
+- Bootstrap for the CSS framework
+- PassportJS - to ensure that this route is accessible when user has logged in, and to seralized / deserialized user when user has logged in / out
+- EJS - To generate HTML with plain javascript to append to frontend.
+### Notes
+- 1 day effort, as database design, authentication layer has been done. Rest of the time spent to come out with the wireframe of the dashboard and rewards overview page.
