@@ -113,7 +113,7 @@ https://mighty-caverns-14844.herokuapp.com/
 - SweetAlert - A replacement for JavaScript's window. alert() function that shows very pretty modal windows. 
 - MomentJS - Wrapper to handle Date object
 ### Notes
-3 Days effort - Ensure all CRUD operations data is flowing to the database in order to append to frontend, to gel in sweetalert for all crud operation modal alert. Ensure that the date is in certain format, in order to sort them by descending / ascending order. To gel in the import function of datatable. Front-End login to display the rewards in certain categories. Custom styling of datatable to make it look more pleasant. Testing of the labeling of rewards, e.g. expiring, expiring soon, active and redeemed.
+3 Days effort - Ensure all CRUD operations data is flowing to the database in order to append to frontend, to gel in sweetalert for all crud operation modal alert. Ensure that the date is in certain format, in order to sort them by descending / ascending order. To gel in the import function of datatable. Front-End logic to display the rewards in certain categories. Custom styling of datatable to make it look more pleasant. Testing of the labeling of rewards, e.g. expiring, expiring soon, active and redeemed.
 E2E testing - from registration route all the way to rewards overview CRUD operation. Ensure that all intended excpetion scenario is handled as per expected.
 # US.5
 **As a** avid singapore rewards hunter,
