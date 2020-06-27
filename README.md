@@ -46,6 +46,43 @@ CSS framework for HTML and CSS design templates
 ### 13. SweetAlert
 A replacement for JavaScript's window. alert() function that shows very pretty modal windows. 
 
+## User Stories
+### US.1
+**As a** avid singapore rewards hunter,
+**I want** to have a pleasant looking landing page, with brief description of the website capabilties / updates
+### Acceptance Criteria
+1. To have 2 section in the landing page
+- Home - to have a welcome banner with a brief description of the website capabilities, with a login and register button
+- About us - a brief description about the website origin / why it was created, and a change log to inform users of the latest updates
+2. A navbar with smooth scrolling effect when click on either **Home** and **About us**
+3. A standard design footer
+### Dependencies
+- Bootstrap for the CSS framework
+- EJS - To generate HTML with plain javascript to append to frontend.
+### Notes
+- Estimated 3 hours efforts
+
+### US.2
+**As a** avid singapore rewards hunter,
+**I want** to be able to sign up / login in order to have a customizable / personal rewards tracker
+### Acceptance Criteria
+- when click on sign up, user will be able to navigate to register page
+- when user is at the registration page, user will be able to onboard successfully
+- When click on login, user will be navigate to login page
+- When user is at login page, user will be able to login with the onboarded crendetial
+### Dependencies
+- Bootstrap for the CSS framework
+- PassportJS - authentication layer
+- Mongoose - schema validation and database for application
+- Connect-flash - Storing of messages, and displaying it on frontend whenever user perform a CRUD operation when being redirected.
+- Express-session - Encrpytion of the cookies
+- Bcrypt - Hasing of the password
+- Method-override - to avail usage of HTTP verbs for CRUD operation
+- EJS - To generate HTML with plain javascript to append to frontend.
+### Notes
+- Estimated 2 days effort, inclusive of taking database design into consideration
+
+
 
 
 
