@@ -13,7 +13,7 @@ https://mighty-caverns-14844.herokuapp.com/
 - Allow users to create, delete, update, view rewards to track individual rewards expiry date. 
 - User will also be able to export via PDF, Print and CSV their created rewards.
 - To send email notification to Users daily to inform them about their rewards which is near expiring if they happen to have one.
-- Sign up/log in functionality, with encrypted passwords
+- Sign up/log in functionality, with encrypted passwords and authentication layer
 - Reset password functionality, with weblink trigger to user onboarded email addresses
 - Ensure application is fully mobile responsive
 
