@@ -42,6 +42,8 @@ To allow server to send email notification to user
 To schedule daily task on specific timing for server to send email
 ### 12. Bootstrap
 CSS framework for HTML and CSS design templates
+### 13. SweetAlert
+A replacement for JavaScript's window. alert() function that shows very pretty modal windows. 
 
 
 
