@@ -1,5 +1,12 @@
 # Rewards Tracker
 
+## Table of Content
+- [Project Demo](#Project-Demo)
+- [Application MVP](#Application-MVP)
+- [Project Scope](#Project-Scope)
+- [Technologies / Dependencies](#Technologies-/-Dependencies)
+- [User Stories](#User-Stories)
+
 ## Project Demo 
 https://mighty-caverns-14844.herokuapp.com/
 
