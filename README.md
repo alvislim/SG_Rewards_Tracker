@@ -25,32 +25,32 @@ https://mighty-caverns-14844.herokuapp.com/
 - Ensure application is fully mobile responsive
 
 ## Dependencies
-### 1. EJS
+#### 1. EJS
 To generate HTML with plain javascript to append to frontend.
-### 2. Method-override
+#### 2. Method-override
 To use HTTP verbs such as PUT or DELETE in places where the client doesn't support it
-### 3. Bcrypt
+#### 3. Bcrypt
 To hash and store passwords in database
-### 4. PassportJS
+#### 4. PassportJS
 To handle authenticate requests
-### 5. Mongoose
+#### 5. Mongoose
 Database for application, which helps in schema validation, and to translate between objects in code and the representations of those objects in MongoDB
-### 6. Connect-flash
+#### 6. Connect-flash
 Storing of messages, and displaying it on frontend whenever user perform a CRUD operation when being redirected.
-### 7. Express-session
+#### 7. Express-session
 - To store the user state with each given being assiged a unique session. 
 - Ecrypting cookies
-### 8. MomentJS
+#### 8. MomentJS
 Wrapper to handle Date object
-### 9. DataTables
+#### 9. DataTables
 Enhanced features for HTML table
-### 10. Nodemailer
+#### 10. Nodemailer
 To allow server to send email notification to user
-### 11. Node-cron
+#### 11. Node-cron
 To schedule daily task on specific timing for server to send email
-### 12. Bootstrap
+#### 12. Bootstrap
 CSS framework for HTML and CSS design templates
-### 13. SweetAlert
+#### 13. SweetAlert
 A replacement for JavaScript's window. alert() function that shows very pretty modal windows. 
 
 ## User Stories
