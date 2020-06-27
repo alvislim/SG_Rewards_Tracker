@@ -17,7 +17,7 @@ https://mighty-caverns-14844.herokuapp.com/
 - Reset password functionality, with weblink trigger to user onboarded email addresses
 - Ensure application is fully mobile responsive
 
-## Technologies / Node.JS libraries utilized
+## Technologies / Dependencies
 ### 1. EJS
 To generate HTML with plain javascript to append to frontend.
 ### 2. Method-override
